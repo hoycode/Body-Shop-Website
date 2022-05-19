@@ -1,28 +1,39 @@
+/*window.onload = function loadMenu() {
+
+    var menu = document.getElementById('menu-options');
+    var menus = json.menus;
+    for (let i = 0; i < menus.length; i++) {
+        let aTag = document.createElement('a');
+        aTag.innerHTML = menus[i].title;
+        menu.appendChild(aTag);
+        console.log(menus[i]);
+    }
+} */
+
 // Open-close responsive menu
 
-function ResponsiveMenu() {
-    let responsive = document.getElementById("menu");
-    if (responsive.className === "container-header") {
-        responsive.className += "responsive";
+function responsiveMenu() {
+    let responsive = document.getElementById('menu');
+
+    if (responsive.className === 'container-header') {
+        responsive.addClass('.responsive');
     } else {
-        responsive.className = "container-header";
+        responsive.className = 'container-header';
     }
 }
 
-//Image opacity when search is on focus
+//Background curtain (black) on search
 
-function CurtainSearch() {
+function curtainSearch() {
 
-    let searchElement = document.getElementById("search-bar");
+    let searchElement = document.getElementById('search-bar');
 
     if (document.activeElement == searchElement) {
-        document.getElementById("curtain").hidden = false;       
-    } 
+        document.getElementById('curtain').style.display = 'block';
+    }
     window.onscroll = function () { window.scrollTo(0, 0); };
 
 }
-
-
 
 
 // Hide Header on on scroll down
@@ -55,15 +66,40 @@ function hasScrolled() {
     if (st > lastScrollTop && st > navbarHeight) {
         // Scroll Down
         $('.container-header').removeClass('nav-down').addClass('nav-up');
+        $('.bag').hide();
     } else {
         // Scroll Up
         if (st + $(window).height() < $(document).height()) {
             $('.container-header').removeClass('nav-up').addClass('nav-down');
+            $('.bag').hide();
         }
     }
 
     lastScrollTop = st;
 }
+
+//Function to open the bag / shopping cart
+
+function openBag() {
+    let bag = document.getElementById('bag');
+
+    if (bag.style.display == 'block') {
+        bag.style.display = 'none';
+    } else {
+        bag.style.display = 'block';
+
+    }
+}
+
+// Show / Hide menu items on search click
+
+$(document).ready(function(){
+    $('#search').click(function(){
+        $('.menu-item').toggleClass('hide-item')
+        /*$('.menu-icon').toggleClass('hide-item') */
+    })
+})
+
 
 
 

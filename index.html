@@ -2,10 +2,13 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/index.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="menu.json"></script>
     <script src="scripts/menu.js"></script>
 
 </head>
@@ -15,31 +18,90 @@
     <!-- Menu -->
 
     <div class="container-header nav-down" id="menu">
-        <a href="index.html" id="brand-logo"><img src="images/menu-logo.png"></img></a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-        <a href="javascript:void(0);" class="icon" onfocus="ResponsiveMenu()" style="border-bottom: none;">
-            <i class="fa fa-bars"></i>
-        </a>
-        <input type="text" id="search-bar" placeholder="Search.." onfocus="CurtainSearch()" style="float: right;">
-        <div class="dropdown-content">
+        <div class="menu-options" id="menu-options">
+            <a href="index.html" id="brand-logo"><img src="assets/images/menu-logo.png"></img></a>
+            <a href="#news" class="menu-item">SURF</a>
+            <a href="#contact" class="menu-item">BODYBOARD</a>
+            <a href="#about" class="menu-item">SKATE</a>
+            <a href="#about" class="menu-item" style="font-weight: bold;">MENS</a>
+            <a href="#about" class="menu-item" style="font-weight: bold;">WOMENS</a>
+            <a href="#about" class="menu-item" style="font-weight: bold;">KIDS</a>
+            <a href="#about" class="menu-item">BRANDS</a>
+            <a href="#about" class="menu-item">SALES</a>
+            <a href="#about" class="menu-item">OUR STORES</a>
+            
+            <!-- Responsive Menu Icon -->
+            <a href="javascript:void(0);" class="icon" onfocus="responsiveMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <!-- Dropdown Content -->
+            <div class="dropdown-content">
+            </div>
         </div>
+
+        <!--Menu Icons-->
+        <div class="menu-icons">
+            <a href="#!" class="menu-icon" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            <a onclick="openBag()" class="menu-icon" id="bag-icon">
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            </a>
+
+        </div>
+
+        <!--Bag / Shopping Cart Options-->
+        <div class="bag" id="bag">
+
+            <div class="bag-content">
+
+                <p>Your Bag is empty.</p>
+                <div class="bag-options">
+                    <ul>
+                        <li>
+                            <a href="" id="menu-bag-icon">
+                                Bag
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" id="menu-saved-icon">
+                                Saved Items
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" id="menu-order-icon">
+                                Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" id="menu-account-icon">
+                                Account
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" id="menu-signin-icon">
+                                Sign in
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
     <!-- Content -->
 
     <div class="main-content">
         <div class="content-wrapper">
-            <div id="curtain" hidden="true">
+            <div id="curtain">
             </div>
         </div>
         <div class="content-wrapper"></div>
     </div>
     </div>
-
-
-
 
 </body>
 
