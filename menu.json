@@ -1,10 +1,9 @@
-{
-    "menus": [
-        {
+[{
+    "menus": [{
             "title": "SURF"
         },
         {
             "title": "BODYBOARD"
         }
     ]
-} 
+}]

@@ -10,32 +10,6 @@
     }
 } */
 
-// Open-close responsive menu
-
-function responsiveMenu() {
-    let responsive = document.getElementById('menu');
-
-    if (responsive.className === 'container-header') {
-        responsive.addClass('.responsive');
-    } else {
-        responsive.className = 'container-header';
-    }
-}
-
-//Background curtain (black) on search
-
-function curtainSearch() {
-
-    let searchElement = document.getElementById('search-bar');
-
-    if (document.activeElement == searchElement) {
-        document.getElementById('curtain').style.display = 'block';
-    }
-    window.onscroll = function () { window.scrollTo(0, 0); };
-
-}
-
-
 // Hide Header on on scroll down
 
 let didScroll;
@@ -80,25 +54,71 @@ function hasScrolled() {
 
 //Function to open the bag / shopping cart
 
-function openBag() {
-    let bag = document.getElementById('bag');
 
-    if (bag.style.display == 'block') {
-        bag.style.display = 'none';
+$(document).ready(function () {
+    $('#bag-icon').click(() => {
+        let bag = $('#bag');
+
+        if (bag.css('display') == 'block') {
+            bag.css('display', 'none');
+        } else {
+            bag.css('display', 'block');
+        }
+    })
+})
+
+// Show - Hide menu items on search click
+
+$(document).ready(() => {
+    
+    //Seach Icon click
+
+    $('#search-icon').click(function () {
+        menuToggle();
+    })
+
+    //Close Icon click
+
+    $('.close').click(function () {
+        menuToggle();
+        closeSearchContainer();
+        $('.container-header').css('background-color', 'white')
+
+    })
+
+    $('#overlay').click(() => {
+        menuToggle();
+        closeSearchContainer();
+        $('.container-header').css('background-color', 'white')
+
+    })
+})
+
+menuToggle = () =>{
+    $('.menu-item').toggleClass('hide-item');
+    $('.search-bar').toggleClass('active');
+    $('.close').toggleClass('active');
+    $('.menu-icon').toggleClass('hide-item')
+    $('.search-container').css('display', 'block');
+    $('.container-header').css('background-color', '#1d1d1f')
+    overlayEffect();
+}
+
+
+overlayEffect = () => {
+    let overlay = $('#overlay');
+    if (overlay.css('display') == 'block') {
+        overlay.css('display', 'none');
+    
     } else {
-        bag.style.display = 'block';
-
+        overlay.css('display', 'block');
+        $('#bag').css('display', 'none');
     }
 }
 
-// Show / Hide menu items on search click
-
-$(document).ready(function(){
-    $('#search').click(function(){
-        $('.menu-item').toggleClass('hide-item')
-        /*$('.menu-icon').toggleClass('hide-item') */
-    })
-})
+closeSearchContainer = () => {
+    $('.search-container').css('display', 'none');
+}
 
 
 

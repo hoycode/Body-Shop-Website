@@ -1,5 +1,19 @@
-body {
-    height: 100%;
+*,
+*::after,
+*::before {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-weight: 200;
+    overflow-y: scroll;
+}
+
+
+/*Serve para manter o main-content abaixo do menu (que apresenta 63px de height */
+
+.main-content {
+    margin-top: 63px;
 }
