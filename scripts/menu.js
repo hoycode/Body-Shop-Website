@@ -86,7 +86,7 @@ $(document).ready(() => {
 
     })
 
-    $('#overlay').click(() => {
+    $('.overlay').click(() => {
         menuToggle();
         closeSearchContainer();
         $('.container-header').css('background-color', 'white')
@@ -106,7 +106,7 @@ menuToggle = () =>{
 
 
 overlayEffect = () => {
-    let overlay = $('#overlay');
+    let overlay = $('.overlay');
     if (overlay.css('display') == 'block') {
         overlay.css('display', 'none');
     

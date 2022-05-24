@@ -18,13 +18,9 @@
 <body>
 
     <div class="container-header nav-down" id="menu">
+    
         <div class="menu-options" id="menu-options">
             
-            <!-- Responsive Menu Icon -->
-            <a href="javascript:void(0);" class="icon">
-                <i class="fa fa-bars"></i>
-            </a>
-
             <!--Menu Options-->
             <a href="index.html" id="brand-logo" class="menu-item"><img src="assets/images/menu-logo.png"></img></a>
             <a href="#news" class="menu-item">SURF</a>
@@ -37,40 +33,6 @@
             <a href="#about" class="menu-item">OUR STORES</a>
 
             <!-- End of Menu Options -->
-
-            <!--Search form-->
-
-            <div class="search-container">
-                <div class="search-bar">
-                    <form action="">
-                        <input type="text" placeholder="Search apple.com">
-                    </form>
-                </div>
-                <div class="link-close"></div>
-    
-                <div class="quick-links">
-                    <h2>Quick Links</h2>
-                    <ul>
-                        <li>
-                            <a href="#">Visiting an Apple Store FAQ</a>
-                        </li>
-                        <li>
-                            <a href="#">Shop Apple Store Online</a>
-                        </li>
-                        <li>
-                            <a href="#">Accessories</a>
-                        </li>
-                        <li>
-                            <a href="#">AirPods</a>
-                        </li>
-                        <li>
-                            <a href="#">AirTag</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- End of menu options -->
 
             <!-- Dropdown Content -->
             <div class="dropdown-menu">
@@ -131,19 +93,53 @@
         </div>
     </div>
 
-    <!-- Content -->
+    <!--Start of the search bar + dropdown-->
 
+    <div class="search-container">
+        <div class="link-search"></div>
+        <div class="search-bar">
+            <form action="">
+                <input type="text" placeholder="Search apple.com">
+            </form>
+        </div>
+        <div class="link-close"></div>
+
+        <div class="quick-links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li>
+                    <a href="#">Visiting an Apple Store FAQ</a>
+                </li>
+                <li>
+                    <a href="#">Shop Apple Store Online</a>
+                </li>
+                <li>
+                    <a href="#">Accessories</a>
+                </li>
+                <li>
+                    <a href="#">AirPods</a>
+                </li>
+                <li>
+                    <a href="#">AirTag</a>
+                </li>
+            </ul>
+        </div>
     </div>
+
+    <!-- Start of Page Content -->
 
     <div class="main-content">
         <div class="content-wrapper">      
-            <div id="overlay">
         </div>
         <div class="content-wrapper"></div>
     </div>
     </div>
 
-    //Testes para saber o IP
+    <!-- End of Page Content-->
+
+    <div class="overlay"></div>
+
+    <!--IP Tests-->
 
     <script>
         /* Add "https://api.ipify.org?format=json" statement
