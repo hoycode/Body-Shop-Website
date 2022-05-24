@@ -7,21 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/menu.css">
     <link rel="stylesheet" href="styles/index.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript" src="menu.json"></script>
     <script src="scripts/menu.js"></script>
+    <title>Board Culture Store</title>
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.ico">
 
 </head>
 
 <body>
 
-    <!-- Menu -->
-
     <div class="container-header nav-down" id="menu">
         <div class="menu-options" id="menu-options">
-            <a href="index.html" id="brand-logo"><img src="assets/images/menu-logo.png"></img></a>
+            
+            <!-- Responsive Menu Icon -->
+            <a href="javascript:void(0);" class="icon">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <!--Menu Options-->
+            <a href="index.html" id="brand-logo" class="menu-item"><img src="assets/images/menu-logo.png"></img></a>
             <a href="#news" class="menu-item">SURF</a>
-            <a href="#contact" class="menu-item">BODYBOARD</a>
             <a href="#about" class="menu-item">SKATE</a>
             <a href="#about" class="menu-item" style="font-weight: bold;">MENS</a>
             <a href="#about" class="menu-item" style="font-weight: bold;">WOMENS</a>
@@ -29,24 +35,58 @@
             <a href="#about" class="menu-item">BRANDS</a>
             <a href="#about" class="menu-item">SALES</a>
             <a href="#about" class="menu-item">OUR STORES</a>
-            
-            <!-- Responsive Menu Icon -->
-            <a href="javascript:void(0);" class="icon" onfocus="responsiveMenu()">
-                <i class="fa fa-bars"></i>
-            </a>
+
+            <!-- End of Menu Options -->
+
+            <!--Search form-->
+
+            <div class="search-container">
+                <div class="search-bar">
+                    <form action="">
+                        <input type="text" placeholder="Search apple.com">
+                    </form>
+                </div>
+                <div class="link-close"></div>
+    
+                <div class="quick-links">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li>
+                            <a href="#">Visiting an Apple Store FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#">Shop Apple Store Online</a>
+                        </li>
+                        <li>
+                            <a href="#">Accessories</a>
+                        </li>
+                        <li>
+                            <a href="#">AirPods</a>
+                        </li>
+                        <li>
+                            <a href="#">AirTag</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- End of menu options -->
 
             <!-- Dropdown Content -->
-            <div class="dropdown-content">
+            <div class="dropdown-menu">
+                <ul>
+                    <li><a href="#">Teste</a></li>
+                    <li><a href="#">Teste</a></li>
+                    <li><a href="#">Teste</a></li>
+                </ul>
             </div>
         </div>
 
         <!--Menu Icons-->
         <div class="menu-icons">
-            <a href="#!" class="menu-icon" id="search">
-                <i class="fa fa-search" aria-hidden="true"></i>
+            <a href="#!" class="menu-icon" id="search-icon">
             </a>
-            <a onclick="openBag()" class="menu-icon" id="bag-icon">
-                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            <a class="menu-icon" id="bag-icon">
             </a>
 
         </div>
@@ -67,7 +107,7 @@
                         <li>
                             <a href="" id="menu-saved-icon">
                                 Saved Items
-                            </a>
+                            </a
                         </li>
                         <li>
                             <a href="" id="menu-order-icon">
@@ -89,19 +129,41 @@
             </div>
 
         </div>
-
     </div>
 
     <!-- Content -->
 
+    </div>
+
     <div class="main-content">
-        <div class="content-wrapper">
-            <div id="curtain">
-            </div>
+        <div class="content-wrapper">      
+            <div id="overlay">
         </div>
         <div class="content-wrapper"></div>
     </div>
     </div>
+
+    //Testes para saber o IP
+
+    <script>
+        /* Add "https://api.ipify.org?format=json" statement
+                   this will communicate with the ipify servers in
+                   order to retrieve the IP address $.getJSON will
+                   load JSON-encoded data from the server using a
+                   GET HTTP request */
+
+        $.getJSON("https://api.ipify.org?format=json", function (data) {
+
+            // Setting text of element P with id gfg
+            if (data.ip === '85.246.152.88') {
+                $("#ip-text").html(data.ip);
+            } else
+                $("#ip-text").text('The Ip is not the same!');
+
+        })
+    </script>
+
+    <p id="ip-text" style="color: black;"></p>
 
 </body>
 
