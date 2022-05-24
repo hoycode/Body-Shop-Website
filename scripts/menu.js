@@ -52,24 +52,18 @@ function hasScrolled() {
     lastScrollTop = st;
 }
 
-//Function to open the bag / shopping cart
+$(document).ready(() => {
 
+    //Show or hide bag menu on bag-icon click (menu)
 
-$(document).ready(function () {
     $('#bag-icon').click(() => {
         let bag = $('#bag');
-
         if (bag.css('display') == 'block') {
             bag.css('display', 'none');
         } else {
             bag.css('display', 'block');
         }
     })
-})
-
-// Show - Hide menu items on search click
-
-$(document).ready(() => {
     
     //Seach Icon click
 
@@ -79,7 +73,7 @@ $(document).ready(() => {
 
     //Close Icon click
 
-    $('.close').click(function () {
+    $('.link-close').click(function () {
         menuToggle();
         closeSearchContainer();
         $('.container-header').css('background-color', 'white')
@@ -94,13 +88,15 @@ $(document).ready(() => {
     })
 })
 
+
+//Functions
+
 menuToggle = () =>{
     $('.menu-item').toggleClass('hide-item');
-    $('.search-bar').toggleClass('active');
-    $('.close').toggleClass('active');
+    $('.search-container').toggleClass('active');
     $('.menu-icon').toggleClass('hide-item')
     $('.search-container').css('display', 'block');
-    $('.container-header').css('background-color', '#1d1d1f')
+    $('.container-header').css('background-color', 'rgba(0, 0, 0, 0.8)')
     overlayEffect();
 }
 
@@ -119,6 +115,8 @@ overlayEffect = () => {
 closeSearchContainer = () => {
     $('.search-container').css('display', 'none');
 }
+
+
 
 
 
