@@ -39,10 +39,10 @@
     float: left;
 }
 
-/* .menu-options a:hover:not(:nth-child(2)):not(:first-child) {
+ .menu-options a:hover:not(:nth-child(2)):not(:first-child) {
     border-bottom: 2px solid #0089c9;
     transition: none;
-} */
+} 
 
 /* =================
   🔹 MENU ICONS 🔹 
@@ -396,12 +396,6 @@
 
 }
 
-/* Start of search-container animation */
-
-
-
-/* End of Search-container animation */
-
 /* =================
 🔸 QUICK LINKS CSS🔸
 ==================*/
@@ -517,19 +511,6 @@
     transition-delay: 200ms;
 } 
 
-
-/* =================
-	🔸 TESTES🔸
-==================*/
-
-.content-wrapper {
-    background-image: url("../assets/images/slider.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    height: 600px;
-}
-
-
 /* =================
 🔹 RESPONSIVE MENU 🔹 
 ==================*/
@@ -581,4 +562,15 @@
 
     }
 
+}
+
+/* =================
+	🔸 TESTES🔸
+==================*/
+
+.content-wrapper {
+    background-image: url("../assets/images/slider.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 600px;
 }
