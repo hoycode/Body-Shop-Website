@@ -28,6 +28,7 @@
     display: none;
     border-bottom: none;
     color: #333;
+    cursor: pointer;
 }
 
 #brand-logo img {
@@ -158,7 +159,6 @@
     background-image: none, url(../assets/images/icons/search-icon.svg);
     background-repeat: no-repeat;
     background-size: 15px 88px;
-    width: 15px;
     background-position: 9px -33px;
 }
 
@@ -199,12 +199,13 @@
     width: 100%;
     background-color: white;
     height: 400px;
-    display: none;
     /*Change this line to 'none' after testes */
+    display: none;
     margin-top: 63px;
     position: static;
     border-top: 1px solid rgba(214, 212, 212);
 }
+
 
 .dropdown-menu a {
     float: none;
@@ -522,6 +523,7 @@
         padding-right: 10px;
         transition: 0s;
     }
+
 }
 
 @media screen and (max-width: 850px) {
@@ -529,7 +531,7 @@
         display: none;
         font-size: 16px;
     }
-
+  
     .container-header a.icon {
         float: left;
         display: block;
@@ -548,9 +550,6 @@
         padding: 0;
     }
 
-}
-
-@media screen and (max-width: 850px) {
     .container-header.responsive {
         position: relative;
     }
@@ -560,6 +559,10 @@
         right: 0;
         top: 0;
 
+    }
+
+    .menu-icons li:not(:nth-child(2)){
+        display: none;
     }
 
 }
@@ -573,4 +576,17 @@
     background-repeat: no-repeat;
     background-size: 100% auto;
     height: 600px;
+}
+
+.ac-item{
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    height: 63px;
+    z-index: 1;
+    vertical-align: top;
+}
+
+#location{
+    color: #abb2b3;
 }

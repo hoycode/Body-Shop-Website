@@ -58,14 +58,14 @@ $(document).ready(() => {
     //Show or hide bag menu on bag-icon click (menu)
 
     $('#bag-icon').click(() => {
-        let bag = $('#bag');
+        let bag = $('.bag-container');
         if (bag.css('display') == 'block') {
             bag.css('display', 'none');
         } else {
             bag.css('display', 'block');
         }
     })
-    
+
     //Seach Icon click
 
     $('#search-icon').click(function () {
@@ -88,12 +88,21 @@ $(document).ready(() => {
         $('.container-header').css('background-color', 'white')
 
     })
+
+    //Window width function
+
+    // if ($(window).width() < 850) {
+    //     alert('Less than 960');
+    // }
+    // else {
+    //     alert('More than 960');
+    // }
 })
 
 
 //Functions
 
-menuToggle = () =>{
+menuToggle = () => {
     $('.menu-item').toggleClass('hide');
     $('.menu-icon').toggleClass('hide')
     $('.container-header').css('background-color', 'rgba(0, 0, 0, 0.8)')
@@ -105,12 +114,14 @@ overlayEffect = () => {
     let overlay = $('.overlay');
     if (overlay.css('display') == 'block') {
         overlay.css('display', 'none');
-    
+
     } else {
         overlay.css('display', 'block');
-        $('#bag').css('display', 'none');
+        $('.bag-container').css('display', 'none');
     }
 }
+
+
 
 
 
