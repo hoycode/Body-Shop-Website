@@ -71,6 +71,7 @@ $(document).ready(() => {
     $('#search-icon').click(function () {
         menuToggle();
         $('.search-container').removeClass('hide');
+        $('body').addClass('no-scrollbar');
     })
 
     //Close Icon click
@@ -78,7 +79,7 @@ $(document).ready(() => {
     $('.link-close').click(function () {
         menuToggle();
         $('.search-container').addClass('hide');
-        $('.container-header').css('background-color', 'white')
+        $('body').removeClass('no-scrollbar');
 
     })
 
@@ -86,17 +87,19 @@ $(document).ready(() => {
         menuToggle();
         $('.search-container').addClass('hide');
         $('.container-header').css('background-color', 'white')
+        $('body').removeClass('no-scrollbar');
+
 
     })
 
     //Window width function
 
-    // if ($(window).width() < 850) {
-    //     alert('Less than 960');
-    // }
-    // else {
-    //     alert('More than 960');
-    // }
+     if ($(window).width() < 850) {
+         alert('Less than 960');
+     }
+     else {
+         alert('More than 960');
+     }
 })
 
 
@@ -104,7 +107,7 @@ $(document).ready(() => {
 
 menuToggle = () => {
     $('.menu-item').toggleClass('hide');
-    $('.menu-icon').toggleClass('hide')
+    $('.menu-icons').toggleClass('hide')
     $('.container-header').css('background-color', 'rgba(0, 0, 0, 0.8)')
     overlayEffect();
 }
