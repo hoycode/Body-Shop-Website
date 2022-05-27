@@ -58,72 +58,67 @@ $(document).ready(() => {
     //Show or hide bag menu on bag-icon click (menu)
 
     $('#bag-icon').click(() => {
-        let bag = $('.bag-container');
-        if (bag.css('display') == 'block') {
-            bag.css('display', 'none');
-        } else {
-            bag.css('display', 'block');
-        }
+        $('.bag-container').toggleClass('hide');
     })
 
     //Seach Icon click
 
     $('#search-icon').click(function () {
         menuToggle();
-        $('.search-container').removeClass('hide');
-        $('body').addClass('no-scrollbar');
+        searchShow();
+        $('.bag-container').addClass('hide');
+
+        let count = 0;
+
+        $(window).resize(function() {
+            if ($(this).width() < 850 && count == 0) {
+          
+              $('.search-container').addClass('hide');
+              menuToggle();
+              searchHide();
+              count ++;
+            }
+          });
+
     })
 
     //Close Icon click
 
     $('.link-close').click(function () {
         menuToggle();
-        $('.search-container').addClass('hide');
-        $('body').removeClass('no-scrollbar');
+        searchHide();
 
     })
 
     $('.overlay').click(() => {
         menuToggle();
-        $('.search-container').addClass('hide');
-        $('.container-header').css('background-color', 'white')
-        $('body').removeClass('no-scrollbar');
-
+        searchHide();
 
     })
 
-    //Window width function
-
-     if ($(window).width() < 850) {
-         alert('Less than 960');
-     }
-     else {
-         alert('More than 960');
-     }
 })
 
 
 //Functions
 
-menuToggle = () => {
+const menuToggle = () => {
     $('.menu-item').toggleClass('hide');
     $('.menu-icons').toggleClass('hide')
-    $('.container-header').css('background-color', 'rgba(0, 0, 0, 0.8)')
-    overlayEffect();
 }
 
-
-overlayEffect = () => {
-    let overlay = $('.overlay');
-    if (overlay.css('display') == 'block') {
-        overlay.css('display', 'none');
-
-    } else {
-        overlay.css('display', 'block');
-        $('.bag-container').css('display', 'none');
-    }
+const searchHide = () => {
+    $('.search-container').addClass('hide');
+    $('.overlay').addClass('hide');
+    $('body').removeClass('no-scrollbar');
+    $('.container-header').removeClass('bgc');
 }
 
+const searchShow = () => {
+    $('.search-container').removeClass('hide');
+    $('.overlay').removeClass('hide');
+    $('body').addClass('no-scrollbar');
+    $('.container-header').addClass('bgc');
+}
 
 
 
