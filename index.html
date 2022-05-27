@@ -22,7 +22,7 @@
         <div class="menu-options" id="menu-options">
 
             <!-- Responsive Menu Icon -->
-            <a class="icon">
+            <a class="icon" onclick="openNav()">
                 <i class="fa fa-bars"></i>
             </a>
 
@@ -60,15 +60,25 @@
             </div>
         </div>
 
+        <!-- Start of the Side nav menu -->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+          </div>
+        <!-- End of the Side nav menu -->
+
         <!-- End of Dropdown Content-->
 
         <!--Menu Icons-->
         <div class="menu-icons">
             <ul style="list-style: none; display: flex; align-items: center;">
-                <li class="ac-item">
+                <li class="icon-item">
                     <a href="#!" class="menu-icon" id="search-icon"></a>
                 </li>
-                <li class="ac-item">
+                <li class="icon-item">
                     <a class="menu-icon" id="bag-icon"> </a>
                 </li>
                     <li id="location">
