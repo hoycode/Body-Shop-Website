@@ -1,15 +1,3 @@
-/*window.onload = function loadMenu() {
-
-    var menu = document.getElementById('menu-options');
-    var menus = json.menus;
-    for (let i = 0; i < menus.length; i++) {
-        let aTag = document.createElement('a');
-        aTag.innerHTML = menus[i].title;
-        menu.appendChild(aTag);
-        console.log(menus[i]);
-    }
-} */
-
 // Hide menu on scroll down
 // Show menu on scroll up
 
@@ -70,15 +58,15 @@ $(document).ready(() => {
 
         let count = 0;
 
-        $(window).resize(function() {
+        $(window).resize(function () {
             if ($(this).width() < 850 && count == 0) {
-          
-              $('.search-container').addClass('hide');
-              menuToggle();
-              searchHide();
-              count ++;
+
+                $('.search-container').addClass('hide');
+                menuToggle();
+                searchHide();
+                count++;
             }
-          });
+        });
 
     })
 
@@ -95,6 +83,16 @@ $(document).ready(() => {
         searchHide();
 
     })
+
+    //Close side menu on width < 850px
+
+    $(window).resize(function () {
+        if ($(this).width() > 850) {
+
+            closeNav();
+
+        }
+    });
 
 })
 
@@ -120,15 +118,47 @@ const searchShow = () => {
     $('.container-header').addClass('bgc');
 }
 
-// Side nav menu functions
+// Sidenav menu functions to open and close on "3 lines" icon
 
 function openNav() {
-    document.getElementById("mySidenav").style.width = "100%";
-  }
-  
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
+    $('#sidenav-menu').css('width', '100%');
+}
+
+function closeNav() {
+    $('#sidenav-menu').css('width', '0');
+
+}
+
+
+//Populate sidenav bar menu using a json list
+
+let sidenavDynamic = () => {
+    $.getJSON("./menujson.json", function (data) {
+
+        //console.log(data);
+
+        let array = [];
+        for (let i = 0; i < data.length; i++) {
+            array.push(data[i].opt);
+        }
+
+        console.log(array);
+
+        // (B2) CREATE LIST
+        var list = document.createElement("ul");
+        for (let i of array) {
+            let listItem = document.createElement("li");
+            let aItem = document.createElement("a");
+            aItem.innerHTML = i;
+            listItem.appendChild(aItem);
+            list.appendChild(listItem);
+        }
+
+        // (B3) APPEND LIST TO CONTAINER
+        document.getElementById("sidenav-options").appendChild(list);
+
+    })
+}
 
 
 
