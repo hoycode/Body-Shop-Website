@@ -175,6 +175,40 @@ let sidenavDynamic = () => {
     })
 }
 
+//Populate nav bar menu using a json list
+
+let navDynamic = () => {
+    $.getJSON("./menujson.json", function (data) {
+
+        //console.log(data);
+
+        let array = [];
+        for (let i = 0; i < data.length; i++) {
+            array.push(data[i].opt);
+        }
+
+        console.log(array);
+
+        // (B2) CREATE LIST
+
+        var list = document.createElement("ul");
+        $(list).css('list-style', 'none');
+        for (let i of array) {
+            let listItem = document.createElement("li");
+            let aItem = document.createElement("a");
+            aItem.classList.add('menu-item');
+            aItem.innerHTML = i;
+            listItem.appendChild(aItem);
+            list.appendChild(listItem);
+        }
+
+        // (B3) APPEND LIST TO CONTAINER
+        document.getElementById("menu-options").appendChild(list);
+
+    })
+}
+
+
 //Get country by IP
 
 /* Add "https://api.ipify.org?format=json" statement
