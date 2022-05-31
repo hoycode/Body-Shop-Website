@@ -107,25 +107,40 @@ const menuToggle = () => {
 const searchHide = () => {
     $('.search-container').addClass('hide');
     $('.overlay').addClass('hide');
-    $('body').removeClass('no-scrollbar');
+    $('body').removeClass('hide-scrollbar');
     $('.container-header').removeClass('bgc');
 }
 
 const searchShow = () => {
     $('.search-container').removeClass('hide');
     $('.overlay').removeClass('hide');
-    $('body').addClass('no-scrollbar');
+    $('body').addClass('hide-scrollbar');
     $('.container-header').addClass('bgc');
 }
 
 // Sidenav menu functions to open and close on "3 lines" icon
 
 function openNav() {
-    $('#sidenav-menu').css('width', '100%');
+    $('.sidenav-menu').css('width', '100%');
+    $('body').addClass('hide-scrollbar');
 }
 
 function closeNav() {
-    $('#sidenav-menu').css('width', '0');
+    $('.sidenav-menu').css('width', '0');
+    $('body').removeClass('hide-scrollbar');
+
+}
+
+//Sidenav menu for countries
+
+function openNavCountry() {
+    $('.sidenav-country').css('width', '100%');
+    $('body').addClass('hide-scrollbar');
+}
+
+function closeNavCountry() {
+    $('.sidenav-country').css('width', '0');
+    $('body').removeClass('hide-scrollbar');
 
 }
 
@@ -159,6 +174,54 @@ let sidenavDynamic = () => {
 
     })
 }
+
+//Get country by IP
+
+/* Add "https://api.ipify.org?format=json" statement
+           this will communicate with the ipify servers in
+           order to retrieve the IP address $.getJSON will
+           load JSON-encoded data from the server using a
+           GET HTTP request */
+
+// $.getJSON("https://api.ipify.org?format=json", function (data) {
+
+//     // Setting text of element <p> with id 'ip-text'
+//     if (data.ip === '85.246.152.88') {
+//         $("#ip-text").html('Portugal');
+//     } else
+//         $("#ip-text").text('England');
+// })
+
+$.getJSON("https://api64.ipify.org?format=json", function (json) {
+
+    var ip = json.ip;
+    var api_key = "at_HqLoDR8LKVBG2ZiuIThNhtNMx6kg1";
+    //let ptCount = 0;
+    $(function () {
+        $.ajax({
+            url: "https://geo.ipify.org/api/v2/country?apiKey=at_HqLoDR8LKVBG2ZiuIThNhtNMx6kg1",
+            data: {
+                apiKey: api_key,
+                ipAddress: ip
+            },
+            success: function (data) {
+                $.getJSON("./countries.json", function (countries) {
+                    for (let i = 0; i < countries.length; i++){           
+                if (countries[i].code === data.location.country) {
+                    $("#ip-text").append(countries[i].name);
+                    // ptCount ++;
+                    // let ipTest = document.createElement("p");
+                    // ipTest.innerHTML = ptCount;
+                    //document.getElementById("ptCount").appendChild(ipTest);
+                }
+                    }
+                })
+                
+            }
+        });
+    });
+
+})
 
 
 

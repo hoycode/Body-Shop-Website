@@ -61,7 +61,7 @@
         </div>
 
         <!-- Start of the Side nav menu -->
-        <div id="sidenav-menu" class="sidenav">
+        <div class="sidenav-menu">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <div id="sidenav-options">
                 <script>
@@ -70,6 +70,16 @@
             </div>
         </div>
         <!-- End of the Side nav menu -->
+
+        <!-- Start of the Side nav menu -->
+        <div class="sidenav-country">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNavCountry()">&times;</a>
+            <div id="sidenav-options">
+                <p>Test</p>
+            </div>
+        </div>
+        <!-- End of the Side nav menu -->
+
 
         <!-- End of Dropdown Content-->
 
@@ -84,8 +94,7 @@
                 </li>
                 <li id="location">
                     <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 5px;"></i>
-                    <a id="ip-text">
-
+                    <a onclick="openNavCountry()" id="ip-text">
                     </a>
                 </li>
 
@@ -179,27 +188,7 @@
     <!-- End of Page Content-->
 
     <div class="overlay hide"></div>
-
-    <!--IP Tests-->
-
-    <script>
-        /* Add "https://api.ipify.org?format=json" statement
-                   this will communicate with the ipify servers in
-                   order to retrieve the IP address $.getJSON will
-                   load JSON-encoded data from the server using a
-                   GET HTTP request */
-
-        $.getJSON("https://api.ipify.org?format=json", function (data) {
-
-            // Setting text of element <p> with id 'ip-text'
-            if (data.ip === '85.246.152.88') {
-                $("#ip-text").html('Portugal');
-            } else
-                $("#ip-text").text('England');
-        })
-    </script>
-
-    <!-- <p id="ip-text" style="color: black;"></p> -->
+    <!-- <div id="ptCount"></div> -->
 
 </body>
 

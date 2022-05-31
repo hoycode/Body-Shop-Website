@@ -1,10 +1,10 @@
 [{
 		"href": "#",
 		"opt": "SURF",
-		"CAT": [{
+		"cat": [{
 				"href": "#",
 				"opt": "SURFBOARDS",
-				"CAT": [{
+				"cat": [{
 						"href": "#",
 						"opt": "HYBRIDS"
 					},
@@ -21,7 +21,7 @@
 			{
 				"href": "#",
 				"opt": "WETSUITS",
-				"CAT": [{
+				"cat": [{
 						"href": "#",
 						"opt": "ACCESSORIES"
 					},
@@ -52,10 +52,6 @@
 	{
 		"href": "#",
 		"opt": "KIDS"
-	},
-	{
-		"href": "#",
-		"opt": "KINDS"
 	},
 	{
 		"href": "#",
