@@ -100,6 +100,9 @@
     border-radius: 18px;
     border: 1px solid rgb(162, 159, 159);
     opacity: 1;
+    user-select: none;
+    -webkit-user-select: none; 
+
 }
 
 .bag-container::before {
@@ -627,14 +630,15 @@
     background-color: white;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
     text-align: left;
 
 }
 
+.close-header{
+    height: 60px;
+}
 
-.sidenav-menu a,
-.sidenav-country a {
+.sidenav-menu a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -650,7 +654,6 @@
     font-weight: bold;
 }
 
-
 .sidenav-menu .closebtn,
 .sidenav-country .closebtn {
     position: absolute;
@@ -658,12 +661,16 @@
     right: 25px;
     font-size: 36px;
     /* margin-left: 50px; */
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: 0.3s;
 }
 
 #sidenav-options {
     border-top: 1px solid rgb(162, 159, 159);
-    padding-top: 5%;
-    height: 100vh;
+    padding-top: 3%;
 }
 
 @media screen and (max-height: 450px) {
@@ -677,3 +684,46 @@
 }
 
 /* Testes do sidenav country */
+
+#close-heading{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: auto;
+    padding-top: 10px;
+}
+
+.countries-list{
+    height: 100%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.countries-list ul{
+    width: 25%;
+    list-style: none;
+}
+
+.countries-list p{
+    font-size: 15px;
+    color: #abb2b3;
+}
+
+.countries-list li{
+    margin-top: 10%;
+}
+
+.countries-list a{
+    font-size: 16px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.countries-list p{
+    font-size: 15px;
+    color: #abb2b3;
+}

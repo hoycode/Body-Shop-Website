@@ -87,13 +87,14 @@ $(document).ready(() => {
     //Close side menu on width < 850px
 
     $(window).resize(function () {
-        if ($(this).width() > 850) {
-
+        if ($('.sidenav-menu').width() > 850) {
             closeNav();
-
         }
     });
 
+    // $('.country').click(() => {
+    //     closeNavCountry();
+    // })
 })
 
 
@@ -170,7 +171,7 @@ let sidenavDynamic = () => {
         }
 
         // (B3) APPEND LIST TO CONTAINER
-        document.getElementById("sidenav-options").appendChild(list);
+        $("#sidenav-options").append(list);
 
     })
 }
@@ -203,7 +204,56 @@ let navDynamic = () => {
         }
 
         // (B3) APPEND LIST TO CONTAINER
-        document.getElementById("menu-options").appendChild(list);
+        $("#menu-options").append(list);
+
+    })
+
+}
+
+//Populate countries menu using a json list
+
+let countryDynamic = () => {
+    $.getJSON("./eucountries.json", function (data) {
+
+        //console.log(data);
+
+        let arrayCountries = [];
+        for (let i = 0; i < data.length; i++) {
+
+            arrayCountries.push([data[i].name, data[i].language]);
+        }
+
+        console.log(arrayCountries);
+
+        // (B2) CREATE LIST
+        var list = document.createElement("ul");
+
+        for (let i = 0; i < arrayCountries.length; i++) {
+            let listItem = document.createElement("li");
+            
+                    let aItem = document.createElement("a");
+                    let pItem = document.createElement("p");
+                    // let sItem = document.createElement("span");
+
+                    aItem.innerHTML = arrayCountries[i][0];
+                    pItem.innerHTML = arrayCountries[i][1];
+
+                    //aItem.classList.add('country');
+                    aItem.setAttribute('href', data[i].href);
+                    // sItem.classList.add('fi');
+                    // sItem.classList.add('fi-gr');
+
+
+                    listItem.appendChild(aItem);
+                    listItem.appendChild(pItem);
+                    // listItem.appendChild(sItem);
+                    list.appendChild(listItem);
+
+            
+        }
+
+        // (B3) APPEND LIST TO DIV
+        $('.countries-list').append(list);
 
     })
 }
@@ -229,28 +279,28 @@ let navDynamic = () => {
 $.getJSON("https://api64.ipify.org?format=json", function (json) {
 
     var ip = json.ip;
-    var api_key = "at_HqLoDR8LKVBG2ZiuIThNhtNMx6kg1";
+    var api_key = "at_474dIdFdbKouxBRhIED0n3meavWIl";
     //let ptCount = 0;
     $(function () {
         $.ajax({
-            url: "https://geo.ipify.org/api/v2/country?apiKey=at_HqLoDR8LKVBG2ZiuIThNhtNMx6kg1",
+            url: "https://geo.ipify.org/api/v2/country?apiKey=at_474dIdFdbKouxBRhIED0n3meavWIl",
             data: {
                 apiKey: api_key,
                 ipAddress: ip
             },
             success: function (data) {
                 $.getJSON("./countries.json", function (countries) {
-                    for (let i = 0; i < countries.length; i++){           
-                if (countries[i].code === data.location.country) {
-                    $("#ip-text").append(countries[i].name);
-                    // ptCount ++;
-                    // let ipTest = document.createElement("p");
-                    // ipTest.innerHTML = ptCount;
-                    //document.getElementById("ptCount").appendChild(ipTest);
-                }
+                    for (let i = 0; i < countries.length; i++) {
+                        if (countries[i].code === data.location.country) {
+                            $("#ip-text").append(countries[i].name);
+                            // ptCount ++;
+                            // let ipTest = document.createElement("p");
+                            // ipTest.innerHTML = ptCount;
+                            //document.getElementById("ptCount").appendChild(ipTest);
+                        }
                     }
                 })
-                
+
             }
         });
     });
