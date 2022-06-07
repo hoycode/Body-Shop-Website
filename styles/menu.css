@@ -686,15 +686,13 @@
 /* Testes do sidenav country */
 
 #close-heading{
-    margin-top: auto;
-    margin-bottom: auto;
-    width: auto;
-    padding-top: 10px;
+    padding-top: 15px;
+    padding-left: 100px;
 }
 
 .countries-list{
     height: 100%;
-    width: 50%;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3%;
@@ -705,15 +703,13 @@
 .countries-list ul{
     width: 25%;
     list-style: none;
-}
-
-.countries-list p{
-    font-size: 15px;
-    color: #abb2b3;
+    min-width: 150px;
+    
 }
 
 .countries-list li{
     margin-top: 10%;
+    text-align: center;
 }
 
 .countries-list a{
