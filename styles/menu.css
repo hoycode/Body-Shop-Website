@@ -19,7 +19,7 @@
 .menu-icon,
 .icon {
     float: left;
-    color: #0089c9;
+    color: #333;
     text-align: center;
     padding: 14px 14px;
     text-decoration: none;
@@ -45,7 +45,7 @@
 }
 
 .menu-options a:hover:not(:nth-child(2)):not(:first-child) {
-    border-bottom: 2px solid #0089c9;
+    border-bottom: 2px solid #333;
     transition: none;
 }
 
@@ -79,7 +79,7 @@
 }
 
 #ip-text {
-    color: #0089c9;
+    color: #abb2b3;
     text-decoration: none;
     cursor: pointer;
 }
@@ -99,7 +99,7 @@
     font-size: 1.25em;
     border-radius: 18px;
     border: 1px solid rgb(162, 159, 159);
-    opacity: 1;
+    display: block;
     user-select: none;
     -webkit-user-select: none; 
 
@@ -119,7 +119,7 @@
 }
 
 .bag-container.hide {
-    opacity: 0;
+    display: none;
 }
 
 .bag-content {
@@ -227,7 +227,7 @@
 .dropdown-menu {
     width: 100%;
     background-color: white;
-    height: 400px;
+    height: 425px;
     /*Change this line to 'none' after testes */
     display: none;
     margin-top: 63px;
@@ -543,7 +543,7 @@
 ==================*/
 
 @media screen and (max-width: 970px) {
-    .container-header .menu-options a {
+    .container-header .menu-item{
         font-size: 13px;
         padding-left: 10px;
         padding-right: 10px;
@@ -631,14 +631,14 @@
     overflow-x: hidden;
     transition: 0.5s;
     text-align: left;
-
 }
 
 .close-header{
     height: 60px;
+    display: flex;
 }
 
-.sidenav-menu a {
+.sidenav-options a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -666,12 +666,9 @@
     color: #333;
     display: block;
     transition: 0.3s;
+    z-index: 10;
 }
 
-#sidenav-options {
-    border-top: 1px solid rgb(162, 159, 159);
-    padding-top: 3%;
-}
 
 @media screen and (max-height: 450px) {
     .sidenav {
@@ -722,4 +719,127 @@
 .countries-list p{
     font-size: 15px;
     color: #abb2b3;
+}
+
+/* Sidenav menu options css */
+
+.sidenav-options {
+    border-top: 1px solid rgb(162, 159, 159);
+    padding-top: 5vh; 
+}
+
+.sidenav-options a img {
+    float: right; 
+    margin-right: 2%;
+    vertical-align: middle;
+    height: 28px;
+}
+
+/* Sidenav sub */
+
+.sidenav-sub{
+    margin-top: 60px;
+    height: 100%;
+    width: 0;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    text-align: left;
+
+}
+
+.close-header a span {
+    vertical-align: middle;
+    height: 28px;
+}
+
+.menu-return div{
+    margin-top: 17px;
+    margin-left: 10px;
+} 
+
+
+
+/*Dropdown menu lists CSS
+Image Slider 1280 x 780 */
+
+
+.dropdown-content{
+    height: 53vh;
+    /* margin: auto; */
+    padding: 20px;
+    /* width: fit-content; */
+    max-width: 100%;
+}
+
+.dropdown-content ul a{
+    font-size: 12px;
+    color: #1d1d1f;
+    text-decoration: none;
+    line-height: 1.8;
+}
+
+.dropdown-content ul a:hover{
+    text-decoration: underline 1px;
+}
+
+.menu-list{
+    display: inline-block;
+    height: 100%;
+    margin-right: 30px;
+    margin-left: 30px;
+    vertical-align: top;
+}
+
+.menu-list .header-list{
+    display: block;
+    color: #1d1d1f;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.menu-list a:hover{
+    text-decoration: underline 1px;
+}
+
+.menu-list li{
+    list-style: none;
+}
+
+.menu-list img{
+    height: 100px;
+    width: 180px;
+    max-width: 220px;
+}
+
+.image-slider{
+    height: 100%;
+    float: right;
+    width: auto;
+}
+
+.image-slider img{
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width: 1312px) {
+    .image-slider{
+        width: 25%;
+        height: 25vw;
+    }
+
+}
+
+@media screen and (max-width: 1028px) {
+    .image-slider{
+        display: none;
+    }
+
 }

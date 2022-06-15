@@ -1,10 +1,12 @@
 [{
-		"href": "#",
 		"opt": "SURF",
 		"cat": [{
-				"href": "#",
 				"opt": "SURFBOARDS",
-				"cat": [{
+				"subcat": [{
+						"href": "#",
+						"opt": "ALL"
+					},
+					{
 						"href": "#",
 						"opt": "HYBRIDS"
 					},
@@ -15,13 +17,40 @@
 					{
 						"href": "#",
 						"opt": "FUNBOARDS"
+					},
+					{
+						"href": "#",
+						"opt": "LONGBOARDS"
+					},
+					{
+						"href": "#",
+						"opt": "MALIBUS"
+					},
+					{
+						"href": "#",
+						"opt": "RETROBOARDS"
+					},
+					{
+						"href": "#",
+						"opt": "SHORTBOARDS"
+					},
+					{
+						"href": "#",
+						"opt": "SOFTBOARDS"
+					},
+					{
+						"href": "#",
+						"opt": "CUSTOM SURFBOARDS"
 					}
 				]
 			},
 			{
-				"href": "#",
 				"opt": "WETSUITS",
-				"cat": [{
+				"subcat": [{
+						"href": "#",
+						"opt": "ALL"
+					},
+					{
 						"href": "#",
 						"opt": "ACCESSORIES"
 					},
@@ -32,37 +61,102 @@
 					{
 						"href": "#",
 						"opt": "MENS"
+					},
+					{
+						"href": "#",
+						"opt": "KIDS"
+					},
+					{
+						"href": "#",
+						"opt": "PONCHOS"
+					},
+					{
+						"href": "#",
+						"opt": "LYCRAS"
+					},
+					{
+						"href": "#",
+						"opt": "WOMENS"
+					},
+					{
+						"href": "#",
+						"opt": "VESTS"
+					}
+				]
+			},
+			{
+				"opt": "SURFGEAR",
+				"subcat": [{
+						"href": "#",
+						"opt": "ALL"
+					},
+					{
+						"href": "#",
+						"opt": "COOL STUFF"
+					},
+					{
+						"href": "#",
+						"opt": "EARSPLUGS"
+					},
+					{
+						"href": "#",
+						"opt": "LONGBOARD FINS"
+					},
+					{
+						"href": "#",
+						"opt": "SUN PROTECTION"
+					},
+					{
+						"href": "#",
+						"opt": "SURF ACCESSORIES"
+					},
+					{
+						"href": "#",
+						"opt": "SURF DECKS"
+					},
+					{
+						"href": "#",
+						"opt": "SURF FINS"
+					},
+					{
+						"href": "#",
+						"opt": "SURF LEASHS"
+					},
+					{
+						"href": "#",
+						"opt": "SURF WAX"
+					},
+					{
+						"href": "#",
+						"opt": "SURFBOARD BAGS"
+					},
+					{
+						"href": "#",
+						"opt": "WATCHES"
 					}
 				]
 			}
 		]
 	},
 	{
-		"href": "#",
 		"opt": "SKATE"
 	},
 	{
-		"href": "#",
 		"opt": "MENS"
 	},
 	{
-		"href": "#",
 		"opt": "WOMENS"
 	},
 	{
-		"href": "#",
 		"opt": "KIDS"
 	},
 	{
-		"href": "#",
 		"opt": "BRANDS"
 	},
 	{
-		"href": "#",
 		"opt": "SALES"
 	},
 	{
-		"href": "#",
 		"opt": "OUR STORES"
 	}
 ]

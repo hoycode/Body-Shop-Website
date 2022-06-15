@@ -1,5 +1,4 @@
-// Hide menu on scroll down
-// Show menu on scroll up
+// Start of hide and show menu on scroll down effect
 
 var didScroll;
 var lastScrollTop = 0;
@@ -40,6 +39,9 @@ function hasScrolled() {
 
     lastScrollTop = st;
 }
+
+// End of hide and show menu on scroll down effect
+
 
 //When the page is loaded, execute all the code (functions) inside
 
@@ -97,6 +99,8 @@ $(document).ready(function () {
     // $('.country').click(() => {
     //     closeNavCountry();
     // })
+
+    sideSubMenu();
 })
 
 
@@ -185,49 +189,93 @@ var sidenavDynamic = function () {
                     if (key == "opt") {
                         var listItem = document.createElement("li");
                         var aItem = document.createElement("a");
-                        aItem.innerHTML = value;
+                        var spanItem = document.createElement("span");
+                        var imgItem = document.createElement("img");
+                        var angleIcon = "../assets/images/icons/angle-right.svg"
+
+                        $(imgItem).attr("src", angleIcon);
+
+                        spanItem.innerHTML = value;
                         listItem.appendChild(aItem);
+                        aItem.appendChild(spanItem);
+                        aItem.appendChild(imgItem);
                         list.appendChild(listItem);
                     }
                 });
             }
         }
 
-        $("#sidenav-options").append(list);
+        $("#sidenav-category").append(list);
 
+    })
+}
+
+var sidenavSubDynamic = function () {
+    $.getJSON("../data/menujson.json", function (data) {
+
+        var list = document.createElement("ul");
+
+        var myResult = data;
+
+        for (var i in myResult) {
+            if (myResult[i] instanceof Object) {
+
+                console.log(myResult[i]);
+
+                $.each(myResult[i], function (key, value) {
+                    console.log(key + ": " + value);
+                    if (key == "opt") {
+                        var listItem = document.createElement("li");
+                        var aItem = document.createElement("a");
+                        var spanItem = document.createElement("span");
+                        var imgItem = document.createElement("img");
+                        var angleIcon = "../assets/images/icons/angle-right.svg"
+
+                        $(imgItem).attr("src", angleIcon);
+
+                        spanItem.innerHTML = value;
+                        listItem.appendChild(aItem);
+                        aItem.appendChild(spanItem);
+                        aItem.appendChild(imgItem);
+                        list.appendChild(listItem);
+                    }
+                });
+            }
+        }
+        $("#sidenav-subcategory").append(list);
     })
 }
 
 //Populate nav bar menu using a json list - AINDA NÃO FUNCIONA
 
-var navDynamic = function () {
-    $.getJSON("../data/menujson.json", function (data) {
+// var navDynamic = function () {
+//     $.getJSON("../data/menujson.json", function (data) {
 
-        //console.log(data);
+//         //console.log(data);
 
-        var array = [];
-        for (var i = 0; i < data.length; i++) {
-            array.push(data[i].opt);
-        }
+//         var array = [];
+//         for (var i = 0; i < data.length; i++) {
+//             array.push(data[i].opt);
+//         }
 
-        console.log(array);
+//         console.log(array);
 
-        var list = document.createElement("ul");
+//         var list = document.createElement("ul");
 
-        $(list).css('list-style', 'none');
-        for (var i of array) {
-            var listItem = document.createElement("li");
-            var aItem = document.createElement("a");
-            aItem.classList.add('menu-item');
-            aItem.innerHTML = i;
-            listItem.appendChild(aItem);
-            list.appendChild(listItem);
-        }
+//         $(list).css('list-style', 'none');
+//         for (var i of array) {
+//             var listItem = document.createElement("li");
+//             var aItem = document.createElement("a");
+//             aItem.classList.add('menu-item');
+//             aItem.innerHTML = i;
+//             listItem.appendChild(aItem);
+//             list.appendChild(listItem);
+//         }
 
-        $("#menu-options").append(list);
-    })
+//         $("#menu-options").append(list);
+//     })
 
-}
+// }
 
 //Populate countries menu using a json list
 
@@ -354,11 +402,11 @@ var countryDynamic = function () {
 $.getJSON("https://api64.ipify.org?format=json", function (json) {
 
     var ip = json.ip;
-    var api_key = "at_474dIdFdbKouxBRhIED0n3meavWIl";
+    var api_key = "at_BnJE8gM5NBpKngmEuGZbSAE10OZtf";
     //var ptCount = 0;
     $(function () {
         $.ajax({
-            url: "https://geo.ipify.org/api/v2/country?apiKey=at_474dIdFdbKouxBRhIED0n3meavWIl",
+            url: "https://geo.ipify.org/api/v2/country?apiKey=at_BnJE8gM5NBpKngmEuGZbSAE10OZtf",
             data: {
                 apiKey: api_key,
                 ipAddress: ip
@@ -381,6 +429,44 @@ $.getJSON("https://api64.ipify.org?format=json", function (json) {
     });
 
 })
+
+/*Test for the sidenav-sub (menu) */
+
+const sideSubMenu = function () {
+
+    $('.sidenav-options').click(function (){
+        openSubNav();
+    });
+}
+
+function openSubNav() {
+    $('.sidenav-sub').css('width', '100%');
+    $('body').addClass('hide-scrollbar');
+}
+
+
+/* Start of the slide show on dropdown menu */
+
+var i = 0;
+var images = ['../assets/images/menu/teste1.jpg', '../assets/images/menu/teste2.jpg', '../assets/images/menu/teste3.jpeg'];
+var time = 3000;
+
+function changeImg(){
+
+    document.slide.src = images[i];
+
+    if(i < images.length - 1){
+        i ++;
+    } else {
+        i = 0;
+    }
+
+    setTimeout("changeImg()", time);
+}
+
+window.onload = changeImg;
+
+/* End of the slide show on dropdown menu */
 
 
 
