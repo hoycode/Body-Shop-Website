@@ -220,24 +220,33 @@ var sidenavSubDynamic = function () {
         for (var i in myResult) {
             if (myResult[i] instanceof Object) {
 
-                console.log(myResult[i]);
+                // console.log(myResult[i]);
 
                 $.each(myResult[i], function (key, value) {
-                    console.log(key + ": " + value);
-                    if (key == "opt") {
-                        var listItem = document.createElement("li");
-                        var aItem = document.createElement("a");
-                        var spanItem = document.createElement("span");
-                        var imgItem = document.createElement("img");
-                        var angleIcon = "../assets/images/icons/angle-right.svg"
+                    // console.log(key + ": " + value);
+                    if (key == "cat") {
+                        $.each(value[i], function (key1, value1) {
+                            // console.log(key1 + ": " + value1);
 
-                        $(imgItem).attr("src", angleIcon);
+                            if (key1 == "opt") {
+                                console.log(key1 + ": " + value1);
 
-                        spanItem.innerHTML = value;
-                        listItem.appendChild(aItem);
-                        aItem.appendChild(spanItem);
-                        aItem.appendChild(imgItem);
-                        list.appendChild(listItem);
+                                var listItem = document.createElement("li");
+                                var aItem = document.createElement("a");
+                                var spanItem = document.createElement("span");
+                                var imgItem = document.createElement("img");
+                                var angleIcon = "../assets/images/icons/angle-right.svg"
+
+                                $(imgItem).attr("src", angleIcon);
+
+                                spanItem.innerHTML = value1;
+                                listItem.appendChild(aItem);
+                                aItem.appendChild(spanItem);
+                                aItem.appendChild(imgItem);
+                                list.appendChild(listItem);
+
+                            }
+                        })
                     }
                 });
             }
@@ -313,7 +322,7 @@ var countryDynamic = function () {
 
         }
 
-        console.log(arrayCountries);
+        // console.log(arrayCountries);
 
         var listCountryOne = document.createElement("ul");
         for (var i = 0; i < 11; i++) {
@@ -384,79 +393,70 @@ var countryDynamic = function () {
 
 //Get country by IP
 
-/* Add "https://api.ipify.org?format=json" statement
-           this will communicate with the ipify servers in
-           order to retrieve the IP address $.getJSON will
-           load JSON-encoded data from the server using a
-           GET HTTP request */
-
-// $.getJSON("https://api.ipify.org?format=json", function (data) {
-
-//     // Setting text of element <p> with id 'ip-text'
-//     if (data.ip === '85.246.152.88') {
-//         $("#ip-text").html('Portugal');
-//     } else
-//         $("#ip-text").text('England');
-// })
-
-$.getJSON("https://api64.ipify.org?format=json", function (json) {
-
-    var ip = json.ip;
-    var api_key = "at_BnJE8gM5NBpKngmEuGZbSAE10OZtf";
-    //var ptCount = 0;
-    $(function () {
-        $.ajax({
-            url: "https://geo.ipify.org/api/v2/country?apiKey=at_BnJE8gM5NBpKngmEuGZbSAE10OZtf",
-            data: {
-                apiKey: api_key,
-                ipAddress: ip
-            },
-            success: function (data) {
-                $.getJSON("../data/countries.json", function (countries) {
-                    for (var i = 0; i < countries.length; i++) {
-                        if (countries[i].code === data.location.country) {
-                            $("#ip-text").append(countries[i].name);
-                            // ptCount ++;
-                            // var ipTest = document.createElement("p");
-                            // ipTest.innerHTML = ptCount;
-                            //document.getElementById("ptCount").appendChild(ipTest);
-                        }
+var api_key = "aTeWSJlpNzRhErcNKmxW";
+//var ptCount = 0;
+$(function () {
+    $.ajax({
+        url: "https://timezoneapi.io/api/ip/?token=" + api_key,
+        success: function (data) {
+            //console.log(data.data.country_code);
+            $.getJSON("../data/countries.json", function (countries) {
+                for (var i = 0; i < countries.length; i++) {
+                    if (countries[i].code === data.data.country_code) {
+                        $("#ip-text").append(countries[i].name);
+                        // ptCount ++;
+                        // var ipTest = document.createElement("p");
+                        // ipTest.innerHTML = ptCount;
+                        //document.getElementById("ptCount").appendChild(ipTest);
                     }
-                })
+                }
+            })
 
-            }
-        });
+        }
     });
+});
 
-})
-
-/*Test for the sidenav-sub (menu) */
+/*Start of sidenav menu (secondaty menus) */
 
 const sideSubMenu = function () {
 
-    $('.sidenav-options').click(function (){
+    $('.sidenav-options').click(function () {
         openSubNav();
     });
+
+    $('#teste').click(function () {
+        closeSubNav();
+    })
+    
 }
 
 function openSubNav() {
     $('.sidenav-sub').css('width', '100%');
     $('body').addClass('hide-scrollbar');
+    $('.menu-return div').css('display', 'block');
+
 }
 
+function closeSubNav(){
+    $('.sidenav-sub').css('width', '0%');
+    $('body').removeClass('hide-scrollbar');
+    $('.menu-return div').css('display', 'none');
+}
+
+/*End of sidenav menu (secondaty menus) */
 
 /* Start of the slide show on dropdown menu */
 
 var i = 0;
 var images = ['../assets/images/menu/teste1.jpg', '../assets/images/menu/teste2.jpg', '../assets/images/menu/teste3.jpeg'];
-var time = 3000;
+var time = 4000;
 
-function changeImg(){
+function changeImg() {
 
     document.slide.src = images[i];
 
-    if(i < images.length - 1){
-        i ++;
+    if (i < images.length - 1) {
+        i++;
     } else {
         i = 0;
     }
@@ -467,6 +467,7 @@ function changeImg(){
 window.onload = changeImg;
 
 /* End of the slide show on dropdown menu */
+
 
 
 
