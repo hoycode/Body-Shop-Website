@@ -619,6 +619,10 @@
     overflow-y: hidden;
 }
 
+.sidenav-menu{
+    overflow-y: hidden;
+}
+
 .sidenav-menu,
 .sidenav-country {
     height: 100%;
@@ -648,9 +652,9 @@
 
 }
 
-.sidenav-menu li:nth-child(3),
-.sidenav-menu li:nth-child(4),
-.sidenav-menu li:nth-child(5) {
+#sidenav-category li:nth-child(3),
+#sidenav-category li:nth-child(4),
+#sidenav-category li:nth-child(5) {
     font-weight: bold;
 }
 
@@ -782,10 +786,6 @@ Image Slider 1280 x 780 */
     color: #1d1d1f;
     text-decoration: none;
     line-height: 1.8;
-}
-
-.dropdown-content ul a:hover{
-    text-decoration: underline 1px;
 }
 
 .menu-list{
