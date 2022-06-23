@@ -42,6 +42,7 @@ function hasScrolled() {
 
 // End of hide and show menu on scroll down effect
 
+
 //When the page is loaded, execute all the code (functions) inside
 
 $(document).ready(function () {
@@ -55,7 +56,7 @@ $(document).ready(function () {
     // End of show or hide bag menu on bag-icon click (menu)
 
 
-    //Shows the search-bar on the search-icon click (menu)
+    // Start of shows the search-bar on the search-icon click (menu)
 
     $('#search-icon').click(function () {
         menuToggle();
@@ -76,8 +77,11 @@ $(document).ready(function () {
 
     })
 
+    // End of shows the search-bar on the search-icon click (menu)
 
-    // Start close Icon click
+
+
+    // Start of close icon click
 
     $('.link-close').click(function () {
         menuToggle();
@@ -91,6 +95,9 @@ $(document).ready(function () {
 
     })
 
+    // End of close icon click
+
+
     //Close side menu on width < 850px
 
     $(window).resize(function () {
@@ -99,7 +106,9 @@ $(document).ready(function () {
         }
     });
 
-    sideSubMenu();
+    sidenavDynamic();
+    sidenavSubDynamic();
+    sidenavSubDynamic2();
 })
 
 
@@ -189,8 +198,12 @@ var sidenavDynamic = function () {
 
         $("#sidenav-category").append(list);
 
+        sideSubMenu();
+
     })
 }
+
+//Populate the subnav bar for menu subcategories
 
 var sidenavSubDynamic = function () {
     $.getJSON("../data/menujson.json", function (data) {
@@ -200,9 +213,10 @@ var sidenavSubDynamic = function () {
         var myResult = data;
 
         for (var i in myResult) {
+
             if (myResult[i] instanceof Object) {
 
-                console.log(myResult[i]);
+                // console.log(myResult[i]);
 
                 $.each(myResult[i], function (key, value) {
                     // console.log(key + ": " + value)
@@ -210,8 +224,7 @@ var sidenavSubDynamic = function () {
                     switch (myResult[i].opt) {
 
                         case "SURF":
-
-                            for (var j in myResult) {
+                            for (var j in value) { //usar value no lugar do myResult
 
                                 if (key == "cat") {
 
@@ -234,7 +247,7 @@ var sidenavSubDynamic = function () {
 
                         case "SKATE":
 
-                            for (var j in myResult) {
+                            for (var j in value) {
 
                                 if (key == "cat") {
 
@@ -256,107 +269,85 @@ var sidenavSubDynamic = function () {
                             }
                             break;
 
-                            case "MENS":
+                        case "MENS":
 
-                                for (var j in myResult) {
-    
-                                    if (key == "cat") {
-    
-                                        $.each(value[j], function (key1, value1) {
-                                            //   console.log(key1 + ": " + value1);
-                                            if (key1 == "opt") {
-    
-                                                // console.log(key1 + ": " + value1);
-    
-                                                $('#mens').click(function () {
-    
-                                                    $("#menu-back span").text('MENS');
-                                                    populateSubnav(value1, list);
-    
-                                                });
-                                            }
-                                        })
-                                    }
+                            for (var j in value) {
+
+                                if (key == "cat") {
+
+                                    $.each(value[j], function (key1, value1) {
+                                        //   console.log(key1 + ": " + value1);
+                                        if (key1 == "opt") {
+
+                                            // console.log(key1 + ": " + value1);
+
+                                            $('#mens').click(function () {
+
+                                                $("#menu-back span").text('MENS');
+                                                populateSubnav(value1, list);
+
+                                            });
+                                        }
+                                    })
                                 }
-                                break;
+                            }
+                            break;
 
-                                case "WOMENS":
+                        case "WOMENS":
 
-                                    for (var j in myResult) {
-        
-                                        if (key == "cat") {
-        
-                                            $.each(value[j], function (key1, value1) {
-                                                //   console.log(key1 + ": " + value1);
-                                                if (key1 == "opt") {
-        
-                                                    // console.log(key1 + ": " + value1);
-        
-                                                    $('#womens').click(function () {
-        
-                                                        $("#menu-back span").text("WOMENS");
-                                                        populateSubnav(value1, list);
-        
-                                                    });
-                                                }
-                                            })
+                            for (var j in value) {
+
+                                if (key == "cat") {
+
+                                    $.each(value[j], function (key1, value1) {
+                                        //   console.log(key1 + ": " + value1);
+                                        if (key1 == "opt") {
+
+                                            // console.log(key1 + ": " + value1);
+
+                                            $('#womens').click(function () {
+
+                                                $("#menu-back span").text("WOMENS");
+                                                populateSubnav(value1, list);
+
+                                            });
                                         }
-                                    }
-                                    break;
+                                    })
+                                }
+                            }
+                            break;
 
-                                    case "KIDS":
+                        case "KIDS":
 
-                                        for (var j in myResult) {
-            
-                                            if (key == "cat") {
-            
-                                                $.each(value[j], function (key1, value1) {
-                                                    //   console.log(key1 + ": " + value1);
-                                                    if (key1 == "opt") {
-            
-                                                        // console.log(key1 + ": " + value1);
-            
-                                                        $('#kids').click(function () {
-            
-                                                            $("#menu-back span").text("KIDS");
-                                                            populateSubnav(value1, list);
-            
-                                                        });
-                                                    }
-                                                })
-                                            }
+                            for (var j in value) {
+
+                                if (key == "cat") {
+
+                                    $.each(value[j], function (key1, value1) {
+                                        //   console.log(key1 + ": " + value1);
+                                        if (key1 == "opt") {
+
+                                            // console.log(key1 + ": " + value1);
+
+                                            $('#kids').click(function () {
+
+                                                $("#menu-back span").text("KIDS");
+                                                populateSubnav(value1, list);
+
+                                            });
                                         }
-                                        break;
-
-                                        case "KIDS":
-
-                                            for (var j in myResult) {
-                
-                                                if (key == "cat") {
-                
-                                                    $.each(value[j], function (key1, value1) {
-                                                        //   console.log(key1 + ": " + value1);
-                                                        if (key1 == "opt") {
-                
-                                                            // console.log(key1 + ": " + value1);
-                
-                                                            $('#kids').click(function () {
-                
-                                                                $("#menu-back span").text("KIDS");
-                                                                populateSubnav(value1, list);
-                
-                                                            });
-                                                        }
-                                                    })
-                                                }
-                                            }
-                                            break;
+                                    })
+                                }
+                            }
+                            break;
                     }
                 });
             }
         }
 
         $("#sidenav-subcategory").append(list);
+
+        sideSubMenu2();
 
     })
 }
@@ -369,8 +360,125 @@ function populateSubnav(value1, list) {
     var imgItem = document.createElement("img");
     var angleIcon = "../assets/images/icons/angle-right.svg"
 
+    aItem.id = value1.toLowerCase();
     $(imgItem).attr("src", angleIcon);
     spanItem.innerHTML = value1;
+    listItem.appendChild(aItem);
+    aItem.appendChild(spanItem);
+    aItem.appendChild(imgItem);
+    list.appendChild(listItem);
+}
+
+//Populate the subnav bar for menu subcategories of 2nd tier
+
+var sidenavSubDynamic2 = function () {
+    $.getJSON("../data/menujson.json", function (data) {
+
+        var list = document.createElement("ul");
+
+        var myResult = data;
+
+        for (var i in myResult) {
+            if (myResult[i] instanceof Object) {
+
+                // console.log(myResult[i]);
+
+                $.each(myResult[i], function (key, value) {
+                    // console.log(key + ": " + value)
+
+                    for (var j in value) {
+
+                        if (key == "cat") {
+
+                            $.each(value[j], function (key1, value1) {
+
+                                console.log(key1 + " :" + value1);
+
+                                if (key1 == "subcat") {
+
+                                    for (var k in value1) {
+                                        $.each(value1[k], function (key2, value2) {
+
+                                            if (key2 == "opt") {
+                                                 console.log(key2 + ": " + value2);
+                                                $("#menu-back2 span").text("SURFBOARDS");
+                                                populateSubnav2(value2, list);
+                                            }
+                                        })
+                                    }
+                                }
+
+                                // switch (myResult[i].cat[j].opt) {
+                                //     case "SURFBOARDS":
+                                //         console.log(myResult[i].cat[j].opt);
+                                //         if (key1 == "subcat") {
+
+                                //             for (var k in value1) {
+                                //                 $.each(value1[k], function (key2, value2) {
+
+                                //                     if (key2 == "opt") {
+                                //                         //  console.log(key2 + ": " + value2);
+                                //                         console.log('teste')
+
+                                //                         $("#menu-back2 span").text("SURFBOARDS");
+                                //                         populateSubnav2(value2, list);
+
+
+
+                                //                     }
+                                //                 })
+                                //             }
+                                //         }
+                                //         break;
+
+                                //     case "WETSUITS":
+                                //         // console.log(myResult[i].cat[j].opt);
+
+                                //         if (key1 == "subcat") {
+
+                                //             for (var k in myResult) {
+                                //                 $.each(value1[k], function (key2, value2) {
+
+                                //                     if (key2 == "opt") {
+                                //                         // console.log(key2 + ": " + value2);
+
+                                //                         $('#wetsuits').click(function () {
+
+                                //                             $("#menu-back2 span").text("WETSUITS");
+                                //                             populateSubnav2(value2, list);
+
+                                //                         });
+                                //                     }
+                                //                 })
+                                //             }
+                                //         }
+                                //         break;
+                                // }
+
+                            })
+                        }
+                    }
+
+                });
+            }
+        }
+
+        $("#sidenav-subcategory2").append(list);
+        sideSubMenu2();
+
+    })
+}
+
+function populateSubnav2(value2, list) {
+
+    var listItem = document.createElement("li");
+    var aItem = document.createElement("a");
+    var spanItem = document.createElement("span");
+    var imgItem = document.createElement("img");
+    var angleIcon = "../assets/images/icons/angle-right.svg"
+
+    $(imgItem).attr("src", angleIcon);
+    spanItem.innerHTML = value2;
     listItem.appendChild(aItem);
     aItem.appendChild(spanItem);
     aItem.appendChild(imgItem);
@@ -409,7 +517,7 @@ function populateSubnav(value1, list) {
 
 // }
 
-//Populate countries menu using a json list
+// Start of populate countries menu using a json list (data/eucountries.json)
 
 var countryDynamic = function () {
     $.getJSON("../data/eucountries.json", function (data) {
@@ -472,10 +580,11 @@ var countryDynamic = function () {
         $('.countries-list').append(listCountryThree);
         $('.countries-list').append(listCountryFour);
 
-
-
     })
 }
+
+// End of populate countries menu using a json list
+
 
 // const bagDynamicList = () => {
 
@@ -541,11 +650,11 @@ $(function () {
 
 /* End of get country by IP */
 
-/*Start of sidenav menu (secondary menus) */
+/* Start of sidenav menu (secondary menus) */
 
 const sideSubMenu = function () {
 
-    $('.sidenav-options').click(function () {
+    $('#sidenav-category ul li').click(function () {
         openSubNav();
     });
 
@@ -557,21 +666,55 @@ const sideSubMenu = function () {
 
 function openSubNav() {
     $('.sidenav-sub').css('width', '100%');
-     $('body').addClass('hide-scrollbar');
-    $('.menu-return div').css('display', 'block');
+    $('body').addClass('hide-scrollbar');
+    $('#menu-back').css('display', 'block');
 }
 
 function closeSubNav() {
     $('.sidenav-sub').css('width', '0%');
     // $('body').removeClass('hide-scrollbar');
-    $('.menu-return div').css('display', 'none');
+    $('#menu-back').css('display', 'none');
     setTimeout(function () {
         $('#sidenav-subcategory li').remove();
     }, 300);
 
 }
 
-/*End of sidenav menu (secondaty menus) */
+/*End of sidenav menu (secondary menus) */
+
+/*Start of sidenav menu (secondary menus) of 2nd level */
+
+const sideSubMenu2 = function () {
+
+    $('#sidenav-subcategory').click(function () {
+        openSubNav2();
+    });
+
+    $('#menu-back2').click(function () {
+        closeSubNav2();
+    })
+
+}
+
+function openSubNav2() {
+    $('.sidenav-sub2').css('width', '100%');
+    $('body').addClass('hide-scrollbar');
+    $('#menu-back').css('display', 'none');
+    $('#menu-back2').css('display', 'block');
+}
+
+function closeSubNav2() {
+    $('.sidenav-sub2').css('width', '0%');
+    // $('body').removeClass('hide-scrollbar');
+    $('#menu-back').css('display', 'block');
+    $('#menu-back2').css('display', 'none');
+    setTimeout(function () {
+        $('#sidenav-subcategory2 li').remove();
+    }, 300);
+}
+
+/*End of sidenav menu (secondary menus) of 2nd level */
+
 
 /* Start of the slide show on dropdown menu */
 

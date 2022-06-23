@@ -256,6 +256,8 @@
 .dropdown-menu:hover {
     display: block;
     position: absolute;
+    border-bottom: 1px solid #333;
+
 }
 
 /* =================
@@ -684,7 +686,7 @@
     }
 }
 
-/* Testes do sidenav country */
+/* Sidenav country */
 
 #close-heading{
     padding-top: 15px;
@@ -739,9 +741,9 @@
     height: 28px;
 }
 
-/* Sidenav sub */
+/* Start of sidenav-sub CSS */
 
-.sidenav-sub{
+.sidenav-sub, .sidenav-sub2{
     margin-top: 60px;
     height: 100%;
     width: 0;
@@ -753,7 +755,6 @@
     overflow-x: hidden;
     transition: 0.5s;
     text-align: left;
-
 }
 
 .close-header a span {
@@ -765,13 +766,21 @@
     margin-top: 17px;
     margin-left: 10px;
     display: none;
-} 
+}
 
+/* End of sidenav-sub CSS */
+
+/* Start of sidenav-sub2 CSS */
+
+.sidenav-sub2{
+    z-index: 3 !important;
+}
+
+/* End of sidenav-sub2 CSS */
 
 
 /*Dropdown menu lists CSS
 Image Slider 1280 x 780 */
-
 
 .dropdown-content{
     height: 53vh;
