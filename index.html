@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/index.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="scripts/menu.js"></script>
+    <script src="scripts/menudynamic.js"></script>
     <title>Board Culture Store</title>
     <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.ico">
     <link rel="stylesheet" href="styles/flags/flag-icons.css">
@@ -29,14 +30,14 @@
 
             <!-- Start of Menu Options-->
             <a href="index.html" id="brand-logo" class="menu-item"><img src="assets/images/menu-logo.png"></img></a>
-            <a href="#news" class="menu-item">SURF</a>
-            <a href="#about" class="menu-item">SKATE</a>
-            <a href="#about" class="menu-item" style="font-weight: bold;">MENS</a>
-            <a href="#about" class="menu-item" style="font-weight: bold;">WOMENS</a>
-            <a href="#about" class="menu-item" style="font-weight: bold;">KIDS</a>
-            <a href="#about" class="menu-item">BRANDS</a>
-            <a href="#about" class="menu-item">SALES</a>
-            <a href="#about" class="menu-item">OUR STORES</a>
+            <a href="#news" class="menu-item" id="menu-surf">SURF</a>
+            <a href="#about" class="menu-item" id="menu-skate">SKATE</a>
+            <a href="#about" class="menu-item" style="font-weight: bold;" id="menu-mens">MENS</a>
+            <a href="#about" class="menu-item" style="font-weight: bold;" id="menu-womens">WOMENS</a>
+            <a href="#about" class="menu-item" style="font-weight: bold;" id="menu-kids">KIDS</a>
+            <a href="#about" class="menu-item" id="menu-brands">BRANDS</a>
+            <a href="#about" class="menu-item" id="menu-sales">SALES</a>
+            <a href="#about" class="menu-item" id="menu-stores">OUR STORES</a>
 
             <!-- End of Menu Options -->
 
@@ -44,10 +45,10 @@
             <div class="dropdown-menu">
                 <div class="dropdown-content">
 
-
+                    
                     <div class="menu-list">
                         <a class="header-list" href="#">SURFBOARDS</a>
-                        <img src="./assets/images/menu/surfboard.jpg" alt="surfboard">
+                        <img src="./assets/images/menu/dropdown-menu/surf/surfboards/surfboards.jpg" alt="surfboard">
                         <ul>
                             <li>
                                 <a href="#">
@@ -105,7 +106,7 @@
 
                     <div class="menu-list">
                         <a class="header-list" href="#">WETSUITS</a>
-                        <img src="./assets/images/menu/surfboard.jpg" alt="surfboard">
+                        <img src="./assets/images/menu/dropdown-menu/surf/surfboards/surfboards.jpg" alt="surfboard">
                         <ul>
                             <li>
                                 <a href="#">
@@ -157,7 +158,7 @@
 
                     <div class="menu-list">
                         <a class="header-list" href="#">SURFGEAR</a>
-                        <img src="./assets/images/menu/surfboard.jpg" alt="surfboard">
+                        <img src="./assets/images/menu/dropdown-menu/surf/surfboards/surfboards.jpg" alt="surfboard">
                         <ul>
                             <li>
                                 <a href="#">
@@ -255,17 +256,26 @@
             </div>
 
             <div class="sidenav-options" id="sidenav-category">
+                <script>
+                    sidenavDynamic();
+                </script>
             </div>
 
             <div class="sidenav-sub">
                 <div class="sidenav-options" id="sidenav-subcategory">
+                    <script>
+                        sidenavSubDynamic();
+                    </script>
                 </div>
             </div>
 
             <!-- Testes para subnav 2nd tier -->
-            
+
             <div class="sidenav-sub2">
                 <div class="sidenav-options" id="sidenav-subcategory2">
+                    <script>
+                        sidenavSubDynamic2();
+                    </script>
                 </div>
             </div>
 

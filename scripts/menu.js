@@ -105,10 +105,6 @@ $(document).ready(function () {
             closeNav();
         }
     });
-
-    sidenavDynamic();
-    sidenavSubDynamic();
-    sidenavSubDynamic2();
 })
 
 
@@ -177,27 +173,15 @@ var sidenavDynamic = function () {
                 $.each(myResult[i], function (key, value) {
                     // console.log(key + ": " + value);
                     if (key == "opt") {
-                        var listItem = document.createElement("li");
-                        var aItem = document.createElement("a");
-                        var spanItem = document.createElement("span");
-                        var imgItem = document.createElement("img");
-                        var angleIcon = "../assets/images/icons/angle-right.svg"
 
-                        $(imgItem).attr("src", angleIcon);
+                        populateSubnav(value, list);
 
-                        aItem.id = value.toLowerCase();
-                        spanItem.innerHTML = value;
-                        listItem.appendChild(aItem);
-                        aItem.appendChild(spanItem);
-                        aItem.appendChild(imgItem);
-                        list.appendChild(listItem);
                     }
                 });
             }
         }
 
         $("#sidenav-category").append(list);
-
         sideSubMenu();
 
     })
@@ -226,7 +210,7 @@ var sidenavSubDynamic = function () {
                         case "SURF":
                             for (var j in value) { //usar value no lugar do myResult
 
-                                if (key == "cat") {
+                                if (key == "cat") { 
 
                                     $.each(value[j], function (key1, value1) {
                                         //   console.log(key1 + ": " + value1);
@@ -346,27 +330,9 @@ var sidenavSubDynamic = function () {
         }
 
         $("#sidenav-subcategory").append(list);
-
-        sideSubMenu2();
+        sideSubMenu();
 
     })
-}
-
-function populateSubnav(value1, list) {
-
-    var listItem = document.createElement("li");
-    var aItem = document.createElement("a");
-    var spanItem = document.createElement("span");
-    var imgItem = document.createElement("img");
-    var angleIcon = "../assets/images/icons/angle-right.svg"
-
-    aItem.id = value1.toLowerCase();
-    $(imgItem).attr("src", angleIcon);
-    spanItem.innerHTML = value1;
-    listItem.appendChild(aItem);
-    aItem.appendChild(spanItem);
-    aItem.appendChild(imgItem);
-    list.appendChild(listItem);
 }
 
 //Populate the subnav bar for menu subcategories of 2nd tier
@@ -392,84 +358,105 @@ var sidenavSubDynamic2 = function () {
 
                             $.each(value[j], function (key1, value1) {
 
-                                console.log(key1 + " :" + value1);
+                                // console.log(key1 + " :" + value1);
 
-                                if (key1 == "subcat") {
+                                // if (key1 == "subcat") {
 
-                                    for (var k in value1) {
-                                        $.each(value1[k], function (key2, value2) {
+                                //     for (var k in value1) {
+                                //         $.each(value1[k], function (key2, value2) {
 
-                                            if (key2 == "opt") {
-                                                 console.log(key2 + ": " + value2);
-                                                $("#menu-back2 span").text("SURFBOARDS");
-                                                populateSubnav2(value2, list);
-                                            }
-                                        })
-                                    }
-                                }
-
-                                // switch (myResult[i].cat[j].opt) {
-                                //     case "SURFBOARDS":
-                                //         console.log(myResult[i].cat[j].opt);
-                                //         if (key1 == "subcat") {
-
-                                //             for (var k in value1) {
-                                //                 $.each(value1[k], function (key2, value2) {
-
-                                //                     if (key2 == "opt") {
-                                //                         //  console.log(key2 + ": " + value2);
-                                //                         console.log('teste')
-
-                                //                         $("#menu-back2 span").text("SURFBOARDS");
-                                //                         populateSubnav2(value2, list);
-
-
-
-                                //                     }
-                                //                 })
+                                //             if (key2 == "opt") {
+                                //                  console.log(key2 + ": " + value2);
+                                //                 $("#menu-back2 span").text("SURFBOARDS");
+                                //                 populateSubnav2(value2, list);
                                 //             }
-                                //         }
-                                //         break;
-
-                                //     case "WETSUITS":
-                                //         // console.log(myResult[i].cat[j].opt);
-
-                                //         if (key1 == "subcat") {
-
-                                //             for (var k in myResult) {
-                                //                 $.each(value1[k], function (key2, value2) {
-
-                                //                     if (key2 == "opt") {
-                                //                         // console.log(key2 + ": " + value2);
-
-                                //                         $('#wetsuits').click(function () {
-
-                                //                             $("#menu-back2 span").text("WETSUITS");
-                                //                             populateSubnav2(value2, list);
-
-                                //                         });
-                                //                     }
-                                //                 })
-                                //             }
-                                //         }
-                                //         break;
+                                //         })
+                                //     }
                                 // }
 
+                                //Tenho que dar fix nisto, esta parte não funciona quando é dado um click num id especifico
+                                //dentro da subnav-category2
+
+                                switch (myResult[i].cat[j].opt) {
+
+                                    case "SURFBOARDS":
+                                        // console.log(myResult[i].cat[j].opt);
+
+                                        if (key1 == "subcat") {
+
+                                            for (var k in myResult) {
+                                                $.each(value1[k], function (key2, value2) {
+
+                                                    if (key2 == "opt") {
+                                                        // console.log(key2 + ": " + value2);
+                                                        $("#surf").click(function () {
+                                                            $("#menu-back2 span").text("SURFBOARDS");
+                                                            populateSubnav(value2, list);
+                                                        });
+                                                    }
+                                                })
+                                            }
+                                        }
+
+                                        break;
+
+                                    case "WETSUITS":
+                                        // console.log(myResult[i].cat[j].opt);
+
+                                        if (key1 == "subcat") {
+
+                                            for (var k in myResult) {
+                                                $.each(value1[k], function (key2, value2) {
+
+                                                    if (key2 == "opt") {
+                                                        // console.log(key2 + ": " + value2);
+                                                        $("#womens").click(function () {
+                                                            $("#menu-back2 span").text("WETSUITS");
+                                                            populateSubnav(value2, list);
+                                                        });
+                                                    }
+                                                })
+                                            }
+                                        }
+
+                                        break;
+
+                                }
+
+                                // if (key1 == "subcat") {
+
+                                //     for (var k in value1) {
+
+                                //         $.each(value1[k], function (key2, value2) {
+
+                                //             if (key2 == "opt") {
+                                //                 //  console.log(key2 + ": " + value2);
+
+                                //                     $("#menu-back2 span").text("SURFBOARDS");
+                                //                     populateSubnav(value2, list);
+
+                                //             }
+                                //         })
+                                //     }
+                                // }
                             })
                         }
                     }
+
 
                 });
             }
         }
 
         $("#sidenav-subcategory2").append(list);
-        sideSubMenu2();
+        sideSubMenu();
 
     })
 }
 
-function populateSubnav2(value2, list) {
+//Star of populate subnav (this code works for the subcategory and subcategory2)
+
+function populateSubnav(value, list) {
 
     var listItem = document.createElement("li");
     var aItem = document.createElement("a");
@@ -477,8 +464,9 @@ function populateSubnav2(value2, list) {
     var imgItem = document.createElement("img");
     var angleIcon = "../assets/images/icons/angle-right.svg"
 
+    aItem.id = value.toLowerCase();
     $(imgItem).attr("src", angleIcon);
-    spanItem.innerHTML = value2;
+    spanItem.innerHTML = value;
     listItem.appendChild(aItem);
     aItem.appendChild(spanItem);
     aItem.appendChild(imgItem);
@@ -662,6 +650,14 @@ const sideSubMenu = function () {
         closeSubNav();
     })
 
+    $('#sidenav-subcategory').click(function () {
+        openSubNav2();
+    });
+
+    $('#menu-back2').click(function () {
+        closeSubNav2();
+    })
+
 }
 
 function openSubNav() {
@@ -677,22 +673,6 @@ function closeSubNav() {
     setTimeout(function () {
         $('#sidenav-subcategory li').remove();
     }, 300);
-
-}
-
-/*End of sidenav menu (secondary menus) */
-
-/*Start of sidenav menu (secondary menus) of 2nd level */
-
-const sideSubMenu2 = function () {
-
-    $('#sidenav-subcategory').click(function () {
-        openSubNav2();
-    });
-
-    $('#menu-back2').click(function () {
-        closeSubNav2();
-    })
 
 }
 
@@ -713,31 +693,32 @@ function closeSubNav2() {
     }, 300);
 }
 
-/*End of sidenav menu (secondary menus) of 2nd level */
+/*End of sidenav menu (secondary menus) */
 
 
 /* Start of the slide show on dropdown menu */
 
-var i = 0;
-var images = ['../assets/images/menu/teste1.jpg', '../assets/images/menu/teste2.jpg', '../assets/images/menu/teste3.jpeg'];
-var time = 4000;
+// var i = 0;
+// var images = ['../assets/images/menu/imgSlider1.jpg', '../assets/images/menu/imgSlider2.jpg', '../assets/images/menu/imgSlider3.jpeg'];
+// var time = 4000;
 
-function changeImg() {
+// function changeImg() {
 
-    document.slide.src = images[i];
+//     document.slide.src = images[i];
 
-    if (i < images.length - 1) {
-        i++;
-    } else {
-        i = 0;
-    }
+//     if (i < images.length - 1) {
+//         i++;
+//     } else {
+//         i = 0;
+//     }
 
-    setTimeout("changeImg()", time);
-}
+//     setTimeout("changeImg()", time);
+// }
 
-window.onload = changeImg;
+// window.onload = changeImg;
 
 /* End of the slide show on dropdown menu */
+
 
 
 

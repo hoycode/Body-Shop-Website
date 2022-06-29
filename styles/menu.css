@@ -233,6 +233,8 @@
     margin-top: 63px;
     position: static;
     border-top: 1px solid rgba(214, 212, 212);
+    border-bottom: 1px solid #333;
+
 }
 
 
@@ -256,9 +258,7 @@
 .dropdown-menu:hover {
     display: block;
     position: absolute;
-    border-bottom: 1px solid #333;
-
-}
+} /* THIS IS IMPORTANT - CHECK LATER*/
 
 /* =================
 🔸 SEARCH BAR CSS🔸
