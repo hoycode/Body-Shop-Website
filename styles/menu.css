@@ -49,7 +49,6 @@
     transition: none;
 }
 
-
 /* =================
   🔹 MENU ICONS 🔹 
 ==================*/
@@ -227,14 +226,13 @@
 .dropdown-menu {
     width: 100%;
     background-color: white;
-    height: 425px;
+    height: 70vh;
     /*Change this line to 'none' after testes */
     display: none;
     margin-top: 63px;
     position: static;
     border-top: 1px solid rgba(214, 212, 212);
     border-bottom: 1px solid #333;
-
 }
 
 

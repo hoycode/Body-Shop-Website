@@ -1,0 +1,8 @@
+Existem algums bugs/problemas, sendo eles os seguintes:
+
+- No side menu, as últimas categorias apenas são geradas de forma dinâmica quando voltamos ao inicio (às categorias iniciais) 
+- No menu do dropdown, não está a ser possível gerar as imagens para cada categoria quando a estrutura é criada no Javascript ✔️
+- É necessário tratar dos hovers do menu de modo a que a categoria em cima mantenha o hover quando o respetivo dropdown aparece
+- É necessário criar o resto da estrutura de modo a mostrar as últimas categorias ✔️ - é necessário corrigir pois está a haver criação de tags li desnecessárias
+- Corrigir o "flash" que acontece quando passamos de menu para menu (adicionar um trasition-delay)
+- A função changeImg é chamada no document.ready, sendo chamada inúmeras vezes no inicio do site sem haver conteúdo
