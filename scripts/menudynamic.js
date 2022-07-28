@@ -1,4 +1,4 @@
-/*Script para fazer o dropdown menu dinâmico */
+/* Script to make the dinamically dropdown menu */
 
 var sliderImages = [3];
 var imgCount = 0;
@@ -15,6 +15,7 @@ $(document).ready(function () {
     changeImg();
 
 })
+
 
 /* Start of dynamic menu on dropdown */
 
@@ -34,6 +35,7 @@ var dynamicDropdown = function () {
     /* End of variable declaration */
 
     /* Star of mouseover on "SURF" menu option */
+
     $(menuSurfId).mouseover(function () {
         sliderImages = ['../assets/images/menu/image-slider/surf/imgSlider1.jpg', '../assets/images/menu/image-slider/surf/imgSlider2.jpg', '../assets/images/menu/image-slider/surf/imgSlider3.jpg'];
         var checkCase = 'SURF';
@@ -308,9 +310,9 @@ var createElements = function (imageArray, value1) {
 
     var list = document.createElement('ul');
 
-    $(aItem).text(value1);
+    $(aItem).text(value1); //Gives the value that comes from value1 to 'a' tags
 
-    $('.dropdown-content').append(menuList);
+    $('.dropdown-content').append(menuList); //appenda a tag to another tag
     $(menuList).append(aItem);
     $(imageSlider).append(imgTagSlider);
     $('.dropdown-content').append(imageSlider);
@@ -351,7 +353,7 @@ var createContent = function (value2) {
 /* End of the createElements function (generate the tags for the dropdown content) */
 
 
-/* Start of the slide show on dropdown menu */
+/* Start of the slide show on dropdown menu (this code controls the image slider on dropdown) */
 
 var imageSlider = document.createElement('div');
 var imgTagSlider = document.createElement('img');
